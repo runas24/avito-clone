@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
-    "@expo/webpack-config": "^19.0.1",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
@@ -31,6 +30,7 @@
     "@babel/core": "^7.20.0",
     "webpack": "^5.92.0",
     "webpack-cli": "^5.1.4",
+    "@expo/webpack-config": "^19.0.1",
     "webpack-dev-server": "^5.0.4"
   },
   "private": true
