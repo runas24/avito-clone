@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import AppNavigator from './navigation/AppNavigator';
+import { firebase } from './config/firebase';
+import { LogBox } from 'react-native';
+
+// Игнорируем предупреждения таймера, которые возникают при использовании Firestore
+LogBox.ignoreLogs(['Setting a timer']);
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  useEffect(() => {
+    // Проверяем подключение к Firebase при запуске приложения
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  }, []);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return <AppNavigator />;
+}
